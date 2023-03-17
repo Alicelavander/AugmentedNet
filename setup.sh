@@ -18,7 +18,7 @@ apt-get install libcudnn8=8.8.0.121-1+cuda12.0
 apt-get autoremove
 
 #setup ssh for GitHub
-cd ~/.ssh
+#cd ~/.ssh
 #ssh-keygen -t rsa
 #cat id_rsa.pub 
 #ssh -T git@github.com
@@ -40,4 +40,4 @@ cd AugmentedNet/
 #apt install unzip
 #unzip dataset.zip
 
-nvidia-smi
+#nvidia-smi
