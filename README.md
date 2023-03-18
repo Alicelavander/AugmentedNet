@@ -248,4 +248,5 @@ These are the results for the best AugmentedNet configuration (11+) against othe
 ## How to run on Google Cloud VM
 
 1. `wget https://github.com/Alicelavander/AugmentedNet/raw/setup/setup.sh`
-2. `sudo ./setup.sh ${pwd}`
+2. `chmod +x setup.sh`
+2. `sudo ./setup.sh $(pwd)`
