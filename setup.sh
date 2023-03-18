@@ -1,4 +1,5 @@
 #!/bin/bash
+HOME=$1
 
 #setup CUDA & cuDNN
 apt install gcc
@@ -18,13 +19,13 @@ apt-get install libcudnn8=8.8.0.121-1+cuda12.0
 apt-get autoremove
 
 #setup ssh for GitHub
-#cd ~/.ssh
+#cd $HOME/.ssh
 #ssh-keygen -t rsa
 #cat id_rsa.pub 
 #ssh -T git@github.com
 
 #setup AugmentedNet
-cd ~/
+cd $HOME
 #git clone --recursive git@github.com:Alicelavander/AugmentedNet.git
 wget https://github.com/napulen/AugmentedNet/archive/refs/heads/main.zip
 apt install unzip
