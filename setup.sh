@@ -32,7 +32,7 @@ apt install unzip
 unzip main.zip
 mv AugmentedNet-main AugmentedNet
 cd AugmentedNet/
-apt install python3.8-venv
+#apt install python3.8-venv
 #python3 -m venv .env 
 #source .env/bin/activate
 #pip install -r requirements.txt
