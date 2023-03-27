@@ -251,7 +251,7 @@ These are the results for the best AugmentedNet configuration (11+) against othe
 2. `chmod +x setup-cuda.sh`
 3. `sudo ./setup-cuda.sh`
 4. `./setup-augmentednet.sh`
-5. restart ssh connection
+5. `sudo shutdown -r now`
 6. `cd AugmentedNet`
 7. `conda create -n aha python=3.8`
 8. `conda activate aha`
