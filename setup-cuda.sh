@@ -17,4 +17,6 @@ apt-get update
 apt-get install libcudnn8=8.8.0.121-1+cuda12.0
 apt-get autoremove
 
+wget https://github.com/Alicelavander/AugmentedNet/raw/setup/setup-augmentednet.sh
+
 #nvidia-smi
