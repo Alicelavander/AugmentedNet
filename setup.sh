@@ -34,6 +34,7 @@ mv AugmentedNet-main AugmentedNet
 cd AugmentedNet/
 wget https://repo.anaconda.com/miniconda/Miniconda3-py38_23.1.0-1-Linux-x86_64.sh
 bash Miniconda3-py38_23.1.0-1-Linux-x86_64.sh
+apt install python3-pip
 #apt install python3.8-venv
 #python3 -m venv .env 
 #source .env/bin/activate
