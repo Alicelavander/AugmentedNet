@@ -220,7 +220,7 @@ class Syncopation(TextureTemplate):
 """
 
 
-class AuxiliaryNotes(TextureTemplate):
+class BadAuxiliaryNotes(TextureTemplate):
     """A pitch pattern that creates a minor second interval in the middle of the chord.
     """
 
@@ -230,11 +230,10 @@ class AuxiliaryNotes(TextureTemplate):
         transposed_note = note.Note(self.notes[2]).transpose(-1)
         transposed_name = transposed_note.nameWithOctave
         transposed_interval = interval.Interval(noteStart=note.Note(self.notes[0]), noteEnd=transposed_note).name
-        dur = self.duration / 4
+        dur = self.duration / 8
         return f"""\
 0.0,{dur},,"['{self.notes[0]}', '{self.notes[1]}', '{self.notes[2]}']","['{self.intervals[0]}', '{self.intervals[1]}']","[True, True, True]"
-{dur},{dur},,"['{self.notes[0]}', '{self.notes[1]}', '{transposed_name}']","['{self.intervals[0]}', '{transposed_interval}']","[False, False, True]"
-{dur*2},{dur*2},,"['{self.notes[0]}', '{self.notes[1]}', '{self.notes[2]}']","['{self.intervals[0]}', '{self.intervals[1]}']","[False, False, True]"
+{dur},{dur*7},,"['{self.notes[0]}', '{self.notes[1]}', '{transposed_name}']","['{self.intervals[0]}', '{transposed_interval}']","[False, False, True]"
 """
 
     def templateSeventh(self):
@@ -270,7 +269,7 @@ available_templates = {
     "Alberti": Alberti,
     "Syncopation": Syncopation,
     "BlockChord": BlockChord,
-    "AuxiliaryNotes": AuxiliaryNotes,
+    "AuxiliaryNotes": BadAuxiliaryNotes,
 }
 
 available_durations = list(
