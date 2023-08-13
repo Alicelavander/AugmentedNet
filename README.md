@@ -244,3 +244,14 @@ These are the results for the best AugmentedNet configuration (11+) against othe
 | BPS                     | BPS          | CS18         | 66.7                           | 51.8                  | 60.6                  | 59.1                  | -                     | -                     | 25.7                           | -                     |
 
 **[Visualize experiments in TensorBoard.dev!](https://tensorboard.dev/experiment/fXVA71nWTkSZh6CqTXCeCw/#scalars)**
+
+## How to run on Google Cloud VM
+
+1. `wget https://github.com/Alicelavander/AugmentedNet/raw/setup/setup-cuda.sh`
+2. `chmod +x setup-cuda.sh`
+3. `sudo ./setup-cuda.sh`
+4. `./setup-augmentednet.sh`
+5. `sudo shutdown -r now`
+6. `cd AugmentedNet`
+7. `conda create -n aha python=3.8`
+8. `conda activate aha`

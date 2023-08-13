@@ -1,6 +1,8 @@
 """Templates for texturizing annotation files and turn them into scores."""
 
 import random
+from music21 import note
+from music21 import interval
 
 
 class TextureTemplate(object):
@@ -218,6 +220,36 @@ class Syncopation(TextureTemplate):
 """
 
 
+class AuxiliaryNotes(TextureTemplate):
+    """A syncopated pattern to separate the upper voice from the rest.
+
+    TODO: Add details"""
+
+    supported_durations = [1.0, 2.0]
+
+    def templateTriad(self):
+        transposed_note = note.Note(self.notes[2]).transpose(-1)
+        transposed_name = transposed_note.nameWithOctave
+        transposed_interval = interval.Interval(noteStart=note.Note(self.notes[0]), noteEnd=transposed_note).name
+        dur = self.duration / 4
+        return f"""\
+0.0,{dur},,"['{self.notes[0]}', '{self.notes[1]}', '{self.notes[2]}']","['{self.intervals[0]}', '{self.intervals[1]}']","[True, True, True]"
+{dur},{dur},,"['{self.notes[0]}', '{self.notes[1]}', '{transposed_name}']","['{self.intervals[0]}', '{transposed_interval}']","[False, False, True]"
+{dur*2},{dur*2},,"['{self.notes[0]}', '{self.notes[1]}', '{self.notes[2]}']","['{self.intervals[0]}', '{self.intervals[1]}']","[False, False, True]"
+"""
+
+    def templateSeventh(self):
+        transposed_note = note.Note(self.notes[3]).transpose(-1)
+        transposed_name = transposed_note.nameWithOctave
+        transposed_interval = interval.Interval(noteStart=note.Note(self.notes[0]), noteEnd=transposed_note).name
+        dur = self.duration / 4
+        return f"""\
+0.0,{dur},,"['{self.notes[0]}', '{self.notes[1]}', '{self.notes[2]}', '{self.notes[3]}']","['{self.intervals[0]}', '{self.intervals[1]}', '{self.intervals[2]}']","[True, True, True, True]"
+{dur},{dur},,"['{self.notes[0]}', '{self.notes[1]}', '{self.notes[2]}', '{transposed_name}']","['{self.intervals[0]}', '{self.intervals[1]}', '{transposed_interval}']","[False, False, False, True]"
+{dur*2},{dur*2},,"['{self.notes[0]}', '{self.notes[1]}', '{self.notes[2]}', '{self.notes[3]}']","['{self.intervals[0]}', '{self.intervals[1]}', '{self.intervals[2]}']","[False, False, False, True]"
+"""
+
+
 class BlockChord(TextureTemplate):
     """A block-chord texture. The default texture in music21-generated scores."""
 
@@ -235,10 +267,11 @@ class BlockChord(TextureTemplate):
 
 
 available_templates = {
-    "BassSplit": BassSplit,
-    "Alberti": Alberti,
-    "Syncopation": Syncopation,
+    # "BassSplit": BassSplit,
+    # "Alberti": Alberti,
+    # "Syncopation": Syncopation,
     "BlockChord": BlockChord,
+    "AuxiliaryNotes": AuxiliaryNotes,
 }
 
 available_durations = list(
